@@ -32,46 +32,54 @@ class LinkedList:
 
     # case 2: time complexity O(1) bc of constant work 
     # case 2(a): when the previous node is given
-    def insertAfterNode(self, prev_node, new_data):
-        #  if the given prev_node doesnot exist in the list
-        if prev_node is None:
-            print("previous node doesn't exist")
+    def insertAfterNode(self, node, new_data):
+        #  if the given node doesnot exist in the list
+        if node is None:
+            print("node doesn't exist")
             return
-        # else if the prev_node exist in the list 
+        # else if the node exist in the list 
+        # create a new node 
         new_node = Node(new_data)
-        new_node.next = prev_node.next
-        prev_node.next = new_node
+        # point the node's next to the new node's next
+        new_node.next = node.next
+        # point the next of the node to the new_node
+        node.next = new_node
 
     # case2(b): when the data of the previous node is given
-    def insertAfterData(self, prev_data, new_data):
+    def insertAfterData(self, data, new_data):
         # if the prev_data is not exist in the linked list
         temp = self.head
+        # traversing the linked list for finding the data's position in linked list
         while(temp):
-            if temp.data == prev_data:
+            if temp.data == data:
                 break;
             else:
                 temp = temp.next;
 
         if(temp):
+            #  creating a new node with the new_data
             new_node = Node(new_data)
+            #  point the new_node's next to the current node's next
             new_node.next = temp.next
+            # point the current node to the new_node
             temp.next = new_node 
 
     
     # case 3: time complexity O(n) bc cost of traversing the list
     def append(self, new_data):
+        # creating a new node with new_data
         new_node = Node(new_data)
 
-        # if the list is empty
+        # if the list is empty, assigning the head to the new node
         if(self.head is None):
             self.head = new_node
             return
-
-        last_node = self.head
-        while(last_node.next):
-            last_node = last_node.next
-
-        last_node.next = new_node
+        # currNode as temp variable for traversing the list.
+        currNode = self.head
+        while(currNode.next):
+            currNode = currNode.next
+        # assigning the last node's next to the the new node.
+        currNode.next = new_node
             
     # case 4: linked list deletion of a node
     # case 4(a): iterative method
@@ -106,7 +114,18 @@ class LinkedList:
     
     #  delete the the given position node
     def deleteNode(self, position):
+        # temp node pointing to head node
         temp = self.head
+        # intialize count equal to zero
+        count = 0
+        # traverse till the position is reached or till the last node of the list
+        while temp.next and count != position:
+            temp =  temp.next
+            count += 1
+        # if the the temp node is last node of the the list
+        if temp.next is None:
+            return 
+        # point temp node's next to the the next of next of temp node
+        temp.next = temp.next.next
 
-        # if the position =0, the head node of the list to be deleted
         
