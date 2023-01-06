@@ -47,4 +47,19 @@ class CircularLinkedList:
             cur.next = new_node
         self.head = new_node
 
+    # calculating the length of the linked list
+    def __len__(self):
+        count = 1
+        cur = self.head
+        while cur:
+            count += 1
+            cur = cur.next
+            if cur == self.head:
+                break
+        return count
+
+    # function for splitting the inkedlist into two parts
+    def splitList(self):
+        pass
+
 
