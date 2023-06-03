@@ -7,6 +7,7 @@ class Solution:
     def numCount(self, A: List[int], number: int):
         count = 0
         for item in A:
+        
             if item == number:
                 count += 1
         
