@@ -12,8 +12,14 @@ def pair_sum_sorted(nums: List[int], target: int) -> List[int]:
     # if the sum == target, return the pair
     else:
         return [left, right]
+    """
+        Complexity Analysis
+            Time Complexity  : O(n) n iterations using two-pointer technique in the worst case
+            Space Complexity : O(1) allocated a constant number of variables
+    """
 
     return []
+
 """
         Test Cases
     1. an empty array []
@@ -23,5 +29,5 @@ def pair_sum_sorted(nums: List[int], target: int) -> List[int]:
     5. an array with duplicate values
     6. an array with negative value, and includes in the target
     7. an array with negative values, and both the values of pair includes in the target
-    
+
 """
