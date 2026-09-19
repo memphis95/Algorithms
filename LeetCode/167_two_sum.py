@@ -7,7 +7,7 @@ def twoSum(self, numbers: List[int], target: int) -> List[int]:
     In the result doesn't matter. 
     If no pair is found, return an empty array.
     """
-        left, right = 0, len(numbers) - 1
+    left, right = 0, len(numbers) - 1
         while left < right:
             total = numbers[left] + numbers[right]
             if total < target:
